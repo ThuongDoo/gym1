@@ -1,46 +1,38 @@
+import { config } from "../data/siteData";
+
 function Hero() {
+  const { hero } = config;
+
   return (
     <section id="top" className="hero">
-      <img
-        className="hero__bg"
-        src="https://picsum.photos/seed/thenewgym-hero/1920/1080"
-        alt="Phòng tập The New Gym"
-      />
+      <img className="hero__bg" src={hero.image} alt={hero.imageAlt} />
       <div className="hero__overlay" />
       <div className="container hero__content">
-        <span className="eyebrow eyebrow--light">The New Gym</span>
+        <span className="eyebrow eyebrow--light">{hero.eyebrow}</span>
         <h1 className="hero__title">
-          GYM CHO <span>MỌI NGƯỜI</span>
+          <span className="hero__title-white">{hero.titleWhite}</span>{" "}
+          <span>{hero.titleHighlight}</span>
         </h1>
-        <p className="hero__subtitle">
-          Không gian tập luyện hiện đại, thoải mái, không phán xét. Chỉ từ
-          299.000đ/tháng — tập luyện không giới hạn, 24/7.
-        </p>
+        <p className="hero__subtitle">{hero.subtitle}</p>
         <div className="hero__cta">
           <a href="#register" className="btn btn-primary">
-            Đăng ký ngay
+            {hero.primaryCtaLabel}
           </a>
           <a href="#pricing" className="btn btn-outline-light">
-            Xem bảng giá
+            {hero.secondaryCtaLabel}
           </a>
         </div>
         <div className="hero__stats">
-          <div>
-            <strong>15+</strong>
-            <span>Phòng tập</span>
-          </div>
-          <div>
-            <strong>24/7</strong>
-            <span>Hoạt động</span>
-          </div>
-          <div>
-            <strong>299K</strong>
-            <span>Từ mỗi tháng</span>
-          </div>
+          {hero.stats.map((stat) => (
+            <div key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

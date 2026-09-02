@@ -1,53 +1,58 @@
-import { useState } from 'react'
-
-const NAV_LINKS = [
-  { label: 'Bảng giá hội viên', href: '#pricing' },
-  { label: 'Tìm phòng tập', href: '#locations' },
-  { label: 'Cơ sở vật chất', href: '#tour' },
-  { label: 'Kiến thức tập luyện', href: '#training' },
-  { label: 'App The New Gym', href: '#app' },
-  { label: 'Giới thiệu', href: '#about' },
-]
+import { useState } from "react";
+import { config } from "../data/siteData";
 
 function Header() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const { header } = config;
 
   return (
     <header className="header">
       <div className="container header__inner">
         <a href="#top" className="header__logo">
-          THE NEW<span>GYM</span>
+          <img src={header.logoImage} alt={header.logoImageAlt} />
         </a>
 
-        <nav className={`header__nav ${open ? 'is-open' : ''}`}>
+        <nav className={`header__nav ${open ? "is-open" : ""}`}>
           <ul>
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} onClick={() => setOpen(false)}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            <li>
+              <a href="#about" onClick={() => setOpen(false)}>
+                {header.navAboutLabel}
+              </a>
+            </li>
+            <li>
+              <a href="#tour" onClick={() => setOpen(false)}>
+                {header.navTourLabel}
+              </a>
+            </li>
+            <li>
+              <a href="#locations" onClick={() => setOpen(false)}>
+                {header.navLocationsLabel}
+              </a>
+            </li>
+            <li>
+              <a href="#app" onClick={() => setOpen(false)}>
+                {header.navAppLabel}
+              </a>
+            </li>
+            <li>
+              <a href="#pricing" onClick={() => setOpen(false)}>
+                {header.navPricingLabel}
+              </a>
+            </li>
           </ul>
           <div className="header__nav-cta">
-            <a href="#register" className="btn btn-outline btn-block">
-              Đăng nhập
-            </a>
             <a href="#register" className="btn btn-primary btn-block">
-              Trải nghiệm 7 ngày
+              {header.trialCtaLabel}
             </a>
           </div>
         </nav>
 
         <div className="header__actions">
-          <a href="#register" className="btn btn-outline header__login">
-            Đăng nhập
-          </a>
           <a href="#register" className="btn btn-primary header__trial">
-            Trải nghiệm miễn phí 7 ngày
+            {header.trialCtaFullLabel}
           </a>
           <button
-            className={`header__burger ${open ? 'is-open' : ''}`}
+            className={`header__burger ${open ? "is-open" : ""}`}
             aria-label="Mở menu"
             onClick={() => setOpen((v) => !v)}
           >
@@ -58,7 +63,7 @@ function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

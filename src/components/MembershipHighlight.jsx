@@ -1,23 +1,12 @@
-const PLANS = [
-  {
-    title: 'Toàn hệ thống',
-    price: '399.000',
-    desc: 'Tập tại tất cả các chi nhánh The New Gym trên toàn quốc.',
-    tag: 'Linh hoạt nhất',
-  },
-  {
-    title: '1 chi nhánh',
-    price: '299.000',
-    desc: 'Tập không giới hạn tại 1 chi nhánh bạn chọn, gần nơi bạn sống.',
-    tag: 'Tiết kiệm nhất',
-  },
-]
+import { config } from "../data/siteData";
 
 function MembershipHighlight() {
+  const { membership } = config;
+
   return (
     <section className="membership">
       <div className="container membership__inner">
-        {PLANS.map((plan) => (
+        {membership.plans.map((plan) => (
           <div className="membership__card" key={plan.title}>
             <span className="membership__tag">{plan.tag}</span>
             <h3>{plan.title}</h3>
@@ -26,7 +15,7 @@ function MembershipHighlight() {
             </p>
             <p className="membership__desc">{plan.desc}</p>
             <a href="#pricing" className="btn btn-dark btn-block">
-              Chọn gói này
+              {plan.ctaLabel}
             </a>
           </div>
         ))}

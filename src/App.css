@@ -16,27 +16,27 @@
 }
 
 .header__logo {
-  font-weight: 900;
-  font-size: 20px;
-  letter-spacing: -0.5px;
-  color: var(--dark);
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 
-.header__logo span {
-  color: var(--primary);
+.header__logo img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .header__nav ul {
   display: flex;
   gap: 26px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .header__nav a {
   font-size: 14.5px;
   font-weight: 600;
   color: var(--text);
+  white-space: nowrap;
 }
 
 .header__nav a:hover {
@@ -74,7 +74,9 @@
   height: 2px;
   background: var(--dark);
   border-radius: 2px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 @media (max-width: 1080px) {
@@ -168,6 +170,10 @@
 
 .hero__title span {
   color: var(--primary);
+}
+
+.hero__title span.hero__title-white {
+  color: #fff;
 }
 
 .hero__subtitle {
@@ -671,7 +677,9 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .features__card:hover {
@@ -680,8 +688,11 @@
 }
 
 .features__icon {
-  font-size: 30px;
+  width: 44px;
+  height: 44px;
   display: inline-block;
+  border-radius: 10px;
+  object-fit: cover;
   margin-bottom: 14px;
 }
 
@@ -735,42 +746,75 @@
   max-width: 460px;
 }
 
-.register__form {
+.register__contact {
   background: var(--dark-soft);
   border: 1px solid #2a2a2a;
   border-radius: var(--radius);
   padding: 28px;
   display: flex;
   flex-direction: column;
+  gap: 24px;
+}
+
+.register__phone {
+  display: flex;
+  align-items: center;
   gap: 14px;
-}
-
-.register__form input {
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding: 14px 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #2a2a2a;
   color: #fff;
-  font-size: 15px;
-  font-family: var(--font);
 }
 
-.register__form input::placeholder {
-  color: #777;
+.register__phone-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--primary);
 }
 
-.register__form input:focus {
-  outline: none;
+.register__phone strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.register__phone small {
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.register__socials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.register__social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.register__social svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.register__social:hover {
+  background: var(--primary);
   border-color: var(--primary);
-}
-
-.register__success {
-  background: var(--dark-soft);
-  border: 1px solid var(--primary);
-  border-radius: var(--radius);
-  padding: 28px;
-  font-size: 15.5px;
-  line-height: 1.6;
 }
 
 @media (max-width: 860px) {
@@ -795,7 +839,14 @@
 }
 
 .footer__logo {
-  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .footer__brand p {
