@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { config } from "../data/siteData";
 
-function Header() {
+function Header({ data }) {
   const [open, setOpen] = useState(false);
-  const { header } = config;
+  const { header } = data;
 
   return (
     <header className="header">

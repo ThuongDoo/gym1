@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function Footer() {
-  const { footer } = config;
+function Footer({ data }) {
+  const { footer } = data;
 
   return (
     <footer className="footer">
@@ -13,7 +11,7 @@ function Footer() {
           <p>{footer.tagline}</p>
           <div className="footer__socials">
             {footer.socials.map((s) => (
-              <a href="#" key={s.label} aria-label={s.label}>
+              <a href={s.href} key={s.label} target="_blank" rel="noreferrer" aria-label={s.label}>
                 {s.icon}
               </a>
             ))}
@@ -37,8 +35,8 @@ function Footer() {
           <h4>{footer.storesTitle}</h4>
           <div className="footer__stores">
             {footer.stores.map((s) => (
-              <a href="#" className="app-promo__badge" key={s}>
-                {s}
+              <a href={s.href} className="app-promo__badge" key={s.label} target="_blank" rel="noreferrer">
+                {s.label}
               </a>
             ))}
           </div>

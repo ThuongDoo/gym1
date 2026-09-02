@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function Features() {
-  const { features } = config;
+function Features({ data }) {
+  const { features } = data;
 
   return (
     <section className="features">

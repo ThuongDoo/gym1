@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function About() {
-  const { about } = config;
+function About({ data }) {
+  const { about } = data;
 
   return (
     <section id="about" className="split">

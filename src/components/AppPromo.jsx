@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function AppPromo() {
-  const { appPromo } = config;
+function AppPromo({ data }) {
+  const { appPromo } = data;
 
   return (
     <section id="app" className="app-promo">
@@ -23,8 +21,8 @@ function AppPromo() {
           </ul>
           <div className="app-promo__stores">
             {appPromo.stores.map((s) => (
-              <a href="#" className="app-promo__badge" key={s}>
-                {s}
+              <a href={s.href} className="app-promo__badge" key={s.label} target="_blank" rel="noreferrer">
+                {s.label}
               </a>
             ))}
           </div>

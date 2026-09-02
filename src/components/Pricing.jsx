@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function Pricing() {
-  const { pricing } = config;
+function Pricing({ data }) {
+  const { pricing } = data;
 
   return (
     <section id="pricing" className="pricing">

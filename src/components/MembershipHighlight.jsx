@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function MembershipHighlight() {
-  const { membership } = config;
+function MembershipHighlight({ data }) {
+  const { membership } = data;
 
   return (
     <section className="membership">

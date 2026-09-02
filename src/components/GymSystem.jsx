@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function GymSystem() {
-  const { gymSystem } = config;
+function GymSystem({ data }) {
+  const { gymSystem } = data;
 
   return (
     <section id="locations" className="system">

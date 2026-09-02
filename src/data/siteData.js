@@ -1,3 +1,12 @@
+// File này CHỈ ĐỂ THAM KHẢO — không được import hay dùng ở bất kỳ đâu trong
+// code. Dữ liệu thật được đọc trực tiếp từ Firestore (collection `websites`,
+// field `config` của doc `websites/{websiteId}`) qua src/lib/content.js.
+// Mục đích của file này là mô tả đầy đủ hình dạng dữ liệu mà field `config`
+// trên Firestore cần có, để component render đúng. Xem thêm src/data/RULES.md
+// về quy tắc thiết kế data (không code cứng, không mảng lồng mảng, không href
+// trong data...) — quy tắc đó áp dụng cho cả doc trên Firestore, không riêng
+// gì file này.
+//
 // Dữ liệu mẫu cho toàn bộ trang, gom vào 1 object config duy nhất.
 // Mỗi key cấp 1 tương ứng với 1 section/component.
 // Trong mỗi section: field là chuỗi hoặc mảng — không dùng object lồng cho 1 mục đơn.
@@ -6,9 +15,14 @@
 // Không dùng mảng lồng mảng: nếu 1 mục trong danh sách cần thêm 1 danh sách con
 // (vd branches của từng city, features của từng plan), danh sách con đó được
 // gộp thành 1 chuỗi nối bằng dấu phẩy và tách ra khi render trong component.
-// Không có href nào trong data: mọi href (link điều hướng, nút bấm, mạng xã hội...)
-// được code cứng trực tiếp trong component tương ứng. Nav trong Header là danh
-// sách cố định (không thêm/bớt được) — chỉ label mới lấy từ data.
+// Href điều hướng nội bộ (nav, nút CTA trỏ tới section khác trong cùng trang
+// như #register, #pricing, #tour...) được code cứng trực tiếp trong component,
+// vì cấu trúc trang (bao nhiêu section, id từng section) không đổi theo data.
+// Nav trong Header là danh sách cố định (không thêm/bớt được) — chỉ label mới
+// lấy từ data.
+// Ngược lại, href tới mạng xã hội hoặc đường dẫn bên ngoài (Messenger, Zalo,
+// Instagram, TikTok, số điện thoại, Google Play/App Store...) LẤY TỪ DATA,
+// vì mỗi client có kênh liên hệ/link tải app khác nhau.
 
 export const config = {
   header: {
@@ -144,7 +158,10 @@ export const config = {
       'Theo dõi tiến độ và lịch sử tập luyện',
       'Quản lý hội viên, gia hạn, nâng cấp gói',
     ],
-    stores: ['▶ Google Play', ' App Store'],
+    stores: [
+      { label: '▶ Google Play', href: '#' },
+      { label: ' App Store', href: '#' },
+    ],
   },
 
   pricing: {
@@ -207,10 +224,17 @@ export const config = {
     subtitle:
       'Liên hệ ngay với The New Gym qua Messenger, Zalo, Instagram, TikTok hoặc gọi điện trực tiếp — đội ngũ tư vấn sẽ hỗ trợ bạn trong thời gian sớm nhất.',
     phoneNumber: '0123 456 789',
+    phoneHref: 'tel:0123456789',
     phoneNote: 'Gọi ngay để được tư vấn',
-    // Icon SVG + href của từng kênh liên hệ được định nghĩa trong component
-    // RegisterCTA (theo label), vì đó là dữ liệu trình bày/liên kết cố định.
-    contactLinks: ['Messenger', 'Zalo', 'Instagram', 'TikTok'],
+    // href tới từng kênh liên hệ lấy từ data (khác nhau theo từng client).
+    // Icon SVG của từng kênh vẫn định nghĩa trong component RegisterCTA
+    // (theo label), vì đó là dữ liệu trình bày, không phải nội dung.
+    contactLinks: [
+      { label: 'Messenger', href: 'https://m.me/thenewgym' },
+      { label: 'Zalo', href: 'https://zalo.me/thenewgym' },
+      { label: 'Instagram', href: 'https://instagram.com/thenewgym' },
+      { label: 'TikTok', href: 'https://tiktok.com/@thenewgym' },
+    ],
   },
 
   footer: {
@@ -218,10 +242,10 @@ export const config = {
     logoImageAlt: 'The New Gym',
     tagline: 'Gym cho mọi người. Không phán xét, không giới hạn.',
     socials: [
-      { label: 'Facebook', icon: 'f' },
-      { label: 'Instagram', icon: '◎' },
-      { label: 'TikTok', icon: '♪' },
-      { label: 'YouTube', icon: '▶' },
+      { label: 'Facebook', icon: 'f', href: '#' },
+      { label: 'Instagram', icon: '◎', href: '#' },
+      { label: 'TikTok', icon: '♪', href: '#' },
+      { label: 'YouTube', icon: '▶', href: '#' },
     ],
     // links: chuỗi các nhãn cách nhau bởi dấu phẩy (không dùng mảng lồng mảng).
     columns: [
@@ -229,7 +253,10 @@ export const config = {
       { title: 'Chính sách', links: 'Chính sách bảo mật, Điều khoản sử dụng, Chăm sóc khách hàng' },
     ],
     storesTitle: 'Tải ứng dụng',
-    stores: ['▶ Google Play', ' App Store'],
+    stores: [
+      { label: '▶ Google Play', href: '#' },
+      { label: ' App Store', href: '#' },
+    ],
     copyright: '© 2026 The New Gym. All rights reserved.',
   },
 }

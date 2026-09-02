@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function GymTour() {
-  const { gymTour } = config;
+function GymTour({ data }) {
+  const { gymTour } = data;
 
   return (
     <section id="tour" className="tour">

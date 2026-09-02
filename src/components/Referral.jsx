@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function Referral() {
-  const { referral } = config;
+function Referral({ data }) {
+  const { referral } = data;
 
   return (
     <section className="split">

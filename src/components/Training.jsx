@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function Training() {
-  const { training } = config;
+function Training({ data }) {
+  const { training } = data;
 
   return (
     <section id="training" className="split split--reverse split--tint">

@@ -1,7 +1,5 @@
-import { config } from "../data/siteData";
-
-function Hero() {
-  const { hero } = config;
+function Hero({ data }) {
+  const { hero } = data;
 
   return (
     <section id="top" className="hero">
