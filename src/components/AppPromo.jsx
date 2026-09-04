@@ -13,9 +13,9 @@ function AppPromo({ data }) {
           <p className="split__text">{appPromo.text}</p>
           <ul className="split__bullets">
             {appPromo.features.map((f) => (
-              <li key={f}>
+              <li key={f.text}>
                 <span className="split__check">✓</span>
-                {f}
+                {f.text}
               </li>
             ))}
           </ul>

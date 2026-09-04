@@ -131,3 +131,26 @@ header: { logoImage: '...', logoImageAlt: 'The New Gym' }
 // href vẫn lấy từ data theo quy tắc 5 (là link bên ngoài), chỉ icon là code cứng.
 const SOCIAL_ICONS = { Messenger: { render: () => <path d="..." /> } }
 ```
+
+## 7. Mọi mảng phải chứa object — không dùng mảng dữ liệu đơn giản
+
+Bất kỳ field nào là mảng đều phải là mảng các object (`[{ ... }, { ... }]`), kể
+cả khi mỗi phần tử chỉ có 1 thuộc tính. Không dùng mảng string/số/giá trị đơn
+giản, vì sau này rất khó thêm thuộc tính (label, href, icon...) cho từng phần
+tử mà không phải đổi cấu trúc data lẫn component.
+
+```js
+// Sai
+tags: ['Cardio', 'Yoga', 'Boxing']
+
+// Đúng
+tags: [{ label: 'Cardio' }, { label: 'Yoga' }, { label: 'Boxing' }]
+```
+
+```jsx
+{tags.map((t) => <li key={t.label}>{t.label}</li>)}
+```
+
+Quy tắc này không áp dụng cho danh sách con gộp thành chuỗi theo quy tắc 4
+(vd `branches: 'Lê Hồng Phong, Lý Thường Kiệt'`) — đó là 1 string, không phải
+mảng.

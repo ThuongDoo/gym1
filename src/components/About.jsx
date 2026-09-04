@@ -10,9 +10,9 @@ function About({ data }) {
         <div className="split__content">
           <span className="eyebrow">{about.eyebrow}</span>
           <h2 className="section-title">{about.title}</h2>
-          {about.paragraphs.map((p, i) => (
-            <p className="split__text" key={i}>
-              {p}
+          {about.paragraphs.map((p) => (
+            <p className="split__text" key={p.text}>
+              {p.text}
             </p>
           ))}
           <a href="#tour" className="btn btn-primary">

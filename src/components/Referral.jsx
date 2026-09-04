@@ -10,9 +10,9 @@ function Referral({ data }) {
         <div className="split__content">
           <span className="eyebrow">{referral.eyebrow}</span>
           <h2 className="section-title">{referral.title}</h2>
-          {referral.paragraphs.map((p, i) => (
-            <p className="split__text" key={i}>
-              {p}
+          {referral.paragraphs.map((p) => (
+            <p className="split__text" key={p.text}>
+              {p.text}
             </p>
           ))}
           <a href="#register" className="btn btn-primary">

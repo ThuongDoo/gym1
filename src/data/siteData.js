@@ -77,8 +77,8 @@ export const config = {
     eyebrow: 'Về The New Gym',
     title: 'Không gian tập luyện thoải mái, không phán xét',
     paragraphs: [
-      'Chúng tôi tạo ra một môi trường nơi ai cũng có thể tập luyện một cách tự tin — dù bạn là người mới bắt đầu hay đã tập lâu năm — mà không cần lo lắng về ánh nhìn của người khác.',
-      'The New Gym hướng đến một cộng đồng tập luyện lành mạnh, thân thiện và dễ tiếp cận với mọi mức chi phí.',
+      { text: 'Chúng tôi tạo ra một môi trường nơi ai cũng có thể tập luyện một cách tự tin — dù bạn là người mới bắt đầu hay đã tập lâu năm — mà không cần lo lắng về ánh nhìn của người khác.' },
+      { text: 'The New Gym hướng đến một cộng đồng tập luyện lành mạnh, thân thiện và dễ tiếp cận với mọi mức chi phí.' },
     ],
     image: 'https://picsum.photos/seed/thenewgym-about/900/700',
     imageAlt: 'Không gian phòng tập The New Gym',
@@ -89,12 +89,12 @@ export const config = {
     eyebrow: 'Hướng dẫn tập luyện miễn phí',
     title: 'Tập đúng kỹ thuật, an toàn ngay từ ngày đầu',
     paragraphs: [
-      'Video hướng dẫn bài tập ngay trong ứng dụng cùng đội ngũ huấn luyện viên luôn sẵn sàng hỗ trợ bạn sử dụng thiết bị đúng cách.',
+      { text: 'Video hướng dẫn bài tập ngay trong ứng dụng cùng đội ngũ huấn luyện viên luôn sẵn sàng hỗ trợ bạn sử dụng thiết bị đúng cách.' },
     ],
     bullets: [
-      'Video hướng dẫn từng bài tập trong app',
-      'HLV hỗ trợ trực tiếp tại phòng tập',
-      'Lộ trình tập luyện theo mục tiêu cá nhân',
+      { text: 'Video hướng dẫn từng bài tập trong app' },
+      { text: 'HLV hỗ trợ trực tiếp tại phòng tập' },
+      { text: 'Lộ trình tập luyện theo mục tiêu cá nhân' },
     ],
     image: 'https://picsum.photos/seed/thenewgym-training/900/700',
     imageAlt: 'Hướng dẫn tập luyện tại The New Gym',
@@ -105,7 +105,7 @@ export const config = {
     eyebrow: 'Thêm bạn, thêm vui',
     title: 'Rủ bạn tập cùng, nhận ngay ưu đãi',
     paragraphs: [
-      'Giới thiệu bạn bè đăng ký thành công gói Toàn hệ thống, cả bạn và người được giới thiệu đều nhận 2 tuần tập luyện miễn phí.',
+      { text: 'Giới thiệu bạn bè đăng ký thành công gói Toàn hệ thống, cả bạn và người được giới thiệu đều nhận 2 tuần tập luyện miễn phí.' },
     ],
     image: 'https://picsum.photos/seed/thenewgym-referral/900/700',
     imageAlt: 'Chương trình giới thiệu bạn bè',
@@ -153,10 +153,10 @@ export const config = {
     image: 'https://picsum.photos/seed/thenewgym-app/480/960',
     imageAlt: 'Ứng dụng The New Gym',
     features: [
-      'Ra vào phòng tập 24/7 bằng mã QR',
-      'Đặt lịch lớp học nhóm miễn phí',
-      'Theo dõi tiến độ và lịch sử tập luyện',
-      'Quản lý hội viên, gia hạn, nâng cấp gói',
+      { text: 'Ra vào phòng tập 24/7 bằng mã QR' },
+      { text: 'Đặt lịch lớp học nhóm miễn phí' },
+      { text: 'Theo dõi tiến độ và lịch sử tập luyện' },
+      { text: 'Quản lý hội viên, gia hạn, nâng cấp gói' },
     ],
     stores: [
       { label: '▶ Google Play', href: '#' },
