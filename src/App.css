@@ -147,7 +147,7 @@
     100deg,
     rgba(10, 10, 10, 0.92) 10%,
     rgba(10, 10, 10, 0.55) 55%,
-    rgba(228, 3, 46, 0.35) 100%
+    color-mix(in srgb, var(--primary) 35%, transparent) 100%
   );
 }
 
@@ -158,7 +158,7 @@
 }
 
 .eyebrow--light {
-  color: #ff6b86;
+  color: color-mix(in srgb, var(--primary) 60%, #fff);
 }
 
 .hero__title {
@@ -335,7 +335,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: rgba(228, 3, 46, 0.12);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
   color: var(--primary);
   font-size: 12px;
   font-weight: 900;

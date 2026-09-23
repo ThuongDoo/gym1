@@ -12,6 +12,7 @@ import Features from './components/Features'
 import RegisterCTA from './components/RegisterCTA'
 import Footer from './components/Footer'
 import { useWebsiteConfig } from './lib/content'
+import { useTheme } from './lib/theme'
 import './App.css'
 
 // Trang render từ `websites/{websiteId}` trên Firestore (xem src/lib/content.js).
@@ -19,6 +20,7 @@ import './App.css'
 // (file đó chỉ để tham khảo — không được import ở đây).
 function App() {
   const { config: data, loading, error } = useWebsiteConfig()
+  useTheme(data?.theme)
 
   if (loading) return null
   if (error) {
